@@ -8,7 +8,7 @@
 Before proceeding, it is recommended to backup the original contents of your GPS's internal storage.
 
 - Register the i386 architecture by executing `sudo dpkg --add-architecture i386` (or the equivalent for your system)
-- Install the following dependencies: `autoconf chrpath fluid imagemagick libglib2.0-dev libtool subversion xsltproc gawk dh-autoreconf pkg-config libglib2.0-dev libc6:i386 libncurses5:i386 libstdc++6:i386`
+- Install the following dependencies: `autoconf chrpath fluid imagemagick libglib2.0-dev libtool subversion xsltproc gawk dh-autoreconf pkg-config libglib2.0-dev libc6:i386 libncurses5:i386 libstdc++6:i386 cmake`
 - Set the `ROOT` envvar in `get_cross_env.sh`
 - Enter the root terminal (`sudo su` in Ubuntu)
 - Execute `source get_cross_env.sh`

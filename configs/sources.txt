@@ -3,7 +3,7 @@
 wget http://download.tomtom.com/open/gpl/toolchain_redhat_gcc-3.3.4_glibc-2.3.2-20060131a.tar.gz
 wget https://archive.org/download/golinux-tt1114405.tar.gz/golinux-tt1114405.tar.gz
 wget https://downloads.sourceforge.net/libpng/zlib-1.2.11.tar.gz
-wget http://theraulxp.es/legacy/opentom/jpegsrc.v6b_mod.tar.gz -O libjpeg-6b.tar.gz
+[ -f $1 ] || { cd ../build && wget http://downloads.sourceforge.net/libjpeg/6b/jpegsrc.v6b.tar.gz && tar -zxvf jpegsrc.v6b.tar.gz && sed -i 's/${CC-cc}/gcc/g' jpeg-6b/config.guess && mv jpeg-6b/ libjpeg-6b/ && tar czf ../Downloads/libjpeg-6b.tar.gz libjpeg-6b; }
 wget http://download.savannah.gnu.org/releases/freetype/freetype-old/freetype-2.3.12.tar.gz
 wget ftp://ftp.icm.edu.pl/pub/unix/graphics/GraphicsMagick/delegates/libpng-1.6.28.tar.gz
 wget ftp://microwindows.org/pub/microwindows/microwindows-full-snapshot.tar.gz -O microwin_9ffcd17.tgz

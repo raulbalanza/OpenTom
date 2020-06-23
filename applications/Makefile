@@ -21,12 +21,20 @@ APPS=	tools nxmenu flxplorer pixil_keyboard nanobrick nxtetravex nxterminal imgv
 CLEAN_APPS= $(APPS:%=clean-%)
 
 EXTRA= 	12swap ntetris pipepanic \
-	madplay sprsht flchekers \
+	madplay flchekers \
 	yareversi opendune linapple \
 	dosbox dillo gnuboy scummvm \
 	martian jooleem.sh tuxchess cr3 \
-	sudoku checkers freecell nxpad_gnuboy \
-	eggchess.sh navit net-bubble
+	sudoku checkers nxpad_gnuboy \
+	eggchess.sh net-bubble
+
+#EXTRA= 	12swap ntetris pipepanic \
+#	madplay sprsht flchekers \
+#	yareversi opendune linapple \
+#	dosbox dillo gnuboy scummvm \
+#	martian jooleem.sh tuxchess cr3 \
+#	sudoku checkers freecell nxpad_gnuboy \
+#	eggchess.sh navit net-bubble
 
 
 .PHONY: $(APPS)
@@ -82,19 +90,19 @@ $(TOMDIST)/bin/net-bubble: Downloads/net-bubble-0.9.1-ezx80-0.tar.gz
 	echo '#! /bin/sh§§cd $$DIST/share/net-bubble§exec net-bubble§' | tr '§' '\n' >$(TOMDIST)/bin/net-bubble.sh; \
 
 
-$(TOMDIST)/bin/navit: Downloads/navit-R7213.tar.gz
-	mkdir -p build
-	cd build && tar xf ../Downloads/navit-R7213.tar.gz && cd navit-R7213 && { \
-		patch -p1 <../../patchs/navit_opentom.patch && \
-		sed -i 's| TOMTOM_SDK_DIR \S*| TOMTOM_SDK_DIR $(ARM_APPROOT)|' Toolchain/$(T_ARCH).cmake && \
-		mkdir -p build && cd build && \
-		cmake .. -DCMAKE_INSTALL_PREFIX=$(ARM_APPROOT) -DFREETYPE_INCLUDE_DIRS=$(ARM_APPROOT)/include/freetype2/ -Dsupport/gettext_intl=TRUE -DHAVE_API_TOMTOM=TRUE -DXSLTS=tomtom -DAVOID_FLOAT=TRUE -Dmap/mg=FALSE -DUSE_PLUGINS=0 -DCMAKE_TOOLCHAIN_FILE=../Toolchain/$(T_ARCH).cmake -DDISABLE_QT=ON -DSAMPLE_MAP=n -DBUILD_MAPTOOL=n >$(LOGS)/navit.log 2>&1 && \
-		make $(JOBS) >>$(LOGS)/navit.log 2>&1 && \
-		make install >>$(LOGS)/navit.log 2>&1 && \
-		cp -R $(ARM_APPROOT)/share/navit $(TOMDIST)/share/ && \
-		cd $(ARM_APPROOT) && find share/locale/ -name navit.mo -exec cp --parents '{}' $(TOMDIST) \; && \
-		cp $(ARM_APPROOT)/bin/navit $(TOMDIST)/bin/navit; \
-	}
+#$(TOMDIST)/bin/navit: Downloads/navit-R7213.tar.gz
+#	mkdir -p build
+#	cd build && tar xf ../Downloads/navit-R7213.tar.gz && cd navit-R7213 && { \
+#		patch -p1 <../../patchs/navit_opentom.patch && \
+#		sed -i 's| TOMTOM_SDK_DIR \S*| TOMTOM_SDK_DIR $(ARM_APPROOT)|' Toolchain/$(T_ARCH).cmake && \
+#		mkdir -p build && cd build && \
+#		cmake .. -DCMAKE_INSTALL_PREFIX=$(ARM_APPROOT) -DFREETYPE_INCLUDE_DIRS=$(ARM_APPROOT)/include/freetype2/ -Dsupport/gettext_intl=TRUE -DHAVE_API_TOMTOM=TRUE -DXSLTS=tomtom -DAVOID_FLOAT=TRUE -Dmap/mg=FALSE -DUSE_PLUGINS=0 -DCMAKE_TOOLCHAIN_FILE=../Toolchain/$(T_ARCH).cmake -DDISABLE_QT=ON -DSAMPLE_MAP=n -DBUILD_MAPTOOL=n >$(LOGS)/navit.log 2>&1 && \
+#		make $(JOBS) >>$(LOGS)/navit.log 2>&1 && \
+#		make install >>$(LOGS)/navit.log 2>&1 && \
+#		cp -R $(ARM_APPROOT)/share/navit $(TOMDIST)/share/ && \
+#		cd $(ARM_APPROOT) && find share/locale/ -name navit.mo -exec cp --parents '{}' $(TOMDIST) \; && \
+#		cp $(ARM_APPROOT)/bin/navit $(TOMDIST)/bin/navit; \
+#	}
 
 
 $(TOMDIST)/bin/eggchess.sh: Downloads/eggchess-1.1-A780-0.tar.gz
@@ -112,15 +120,15 @@ $(TOMDIST)/bin/eggchess.sh: Downloads/eggchess-1.1-A780-0.tar.gz
 $(TOMDIST)/bin/nxpad_gnuboy:
 	make -C src/nxpad_gnuboy install
 
-$(TOMDIST)/bin/freecell: Downloads/TomTom_FreeCell.zip
-	mkdir -p build
-	mkdir -p build/freecell
-	cd build/freecell && unzip ../../Downloads/TomTom_FreeCell.zip && { \
-		cd src && patch -p1 <../../../patchs/freecell_opentom.patch; cd ..; \
-		$(CXX) -o $(TOMDIST)/bin/freecell -D ONLY16BPP -I$(ARM_APPROOT)/include/SDL -I src/include src/*.cpp -lSDL -lpthread && \
-		mkdir -p $(TOMDIST)/share/freecell; \
-		cp catapps/freecell/*.bmp $(TOMDIST)/share/freecell; \
-	}
+#$(TOMDIST)/bin/freecell: Downloads/TomTom_FreeCell.zip
+#	mkdir -p build
+#	mkdir -p build/freecell
+#	cd build/freecell && unzip ../../Downloads/TomTom_FreeCell.zip && { \
+#		cd src && patch -p1 <../../../patchs/freecell_opentom.patch; cd ..; \
+#		$(CXX) -o $(TOMDIST)/bin/freecell -D ONLY16BPP -I$(ARM_APPROOT)/include/SDL -I src/include src/*.cpp -lSDL -lpthread && \
+#		mkdir -p $(TOMDIST)/share/freecell; \
+#		cp catapps/freecell/*.bmp $(TOMDIST)/share/freecell; \
+#	}
 
 
 $(TOMDIST)/bin/sudoku:
@@ -182,12 +190,12 @@ $(TOMDIST)/bin/madplay: Downloads/madplay-0.15.2b.tar.gz
 		make $(JOBS) >$(LOGS)/madplay.log && cp madplay $(TOMDIST)/bin/madplay; \
 	}
 
-$(TOMDIST)/bin/sprsht: Downloads/spreadsheet1.2.2.tar.gz
-	mkdir -p build
-	cd build && tar xf ../Downloads/spreadsheet1.2.2.tar.gz && cd spreadsheet1.2.2 && { \
-		patch -p1 <../../patchs/spreadsheet1.2.2_1402241834.patch; \
-		make >$(LOGS)/sprsht.log && cp sprsht $(TOMDIST)/bin/; \
-	}
+#$(TOMDIST)/bin/sprsht: Downloads/spreadsheet1.2.2.tar.gz
+#	mkdir -p build
+#	cd build && tar xf ../Downloads/spreadsheet1.2.2.tar.gz && cd spreadsheet1.2.2 && { \
+#		patch -p1 <../../patchs/spreadsheet1.2.2_1402241834.patch; \
+#		make >$(LOGS)/sprsht.log && cp sprsht $(TOMDIST)/bin/; \
+#	}
 
 $(TOMDIST)/bin/flchekers: Downloads/yacheckers-1.4.0.tar.bz2
 	mkdir -p build

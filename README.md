@@ -13,7 +13,7 @@ Before proceeding, it is recommended to backup the original contents of your GPS
 - <s>Set the `ROOT` envvar in `get_cross_env.sh` </s>
   (Entered an auto root path. To have a different path edit get_cross_env.sh)
 - Enter the root terminal (`sudo su` in Ubuntu)
-- Execute `source get_cross_env.sh`
+- Execute `source get_cross_env.sh` or `./start-compiling.sh`
 - Run `make` to start the initial OpenTom build\*
   - This may take a while, as it will download and compile every system component
 - Copy `build/ttsystem` (boot image) to the root folder of the GPS storage

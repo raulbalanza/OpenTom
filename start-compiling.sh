@@ -3,7 +3,7 @@
 
 export NAMENAME="$(whoami)"
 
-echo -e "Hello $NAMENAME\!"
+echo -e "Hello $NAMENAME !"
 echo -n "Press any key to start compiling OpenTom..."
 read VARVARINPUT
 

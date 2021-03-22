@@ -1,6 +1,7 @@
 # Source this file to use OpenTomSDK
 
-export ROOT=
+export AUTOROOT="$(pwd)"
+export ROOT="$AUTOROOT"
 export SOURCE="$ROOT/src"
 export INITRAMFS_ROOT="$ROOT/initramfs"
 export ARM_ROOT=arm-sysroot

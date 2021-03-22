@@ -12,7 +12,9 @@ then
     source get_cross_env.sh
     make
     echo "If you are getting an error like `x86_64-unknown-linux-gnu': machine `x86_64-unknown' 
-    do linux32 make"
+          do linux32 make"
+          
+fi
     
 
 exit 0

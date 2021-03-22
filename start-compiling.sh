@@ -11,8 +11,8 @@ if [[ -z "$VAR2" ]]
 then
     source get_cross_env.sh
     make
-    echo "If you are getting an error like `x86_64-unknown-linux-gnu': machine `x86_64-unknown' 
-          do linux32 make"
+    echo -e "If you are getting an error like 'x86_64-unknown-linux-gnu'
+             \bdo linux32 make"
           
 fi
     

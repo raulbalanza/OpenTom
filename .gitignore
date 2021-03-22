@@ -1,6 +1,5 @@
 arm-sysroot/
 build/
-Downloads/
 initramfs/
 logs/
 opentom_dist/

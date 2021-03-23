@@ -41,9 +41,6 @@ Before proceeding, it is recommended to backup the original contents of your GPS
 - Use the built-in FTP server to update your files
 - `strace` and `gdb` are ready to be used to debug your programs
 
-# Untested guides
-
-The following sections of this documentation have not been tested by me (**@raulbalanza**), so they are not guaranteed to be working as of June 2020.
 
 ## How to modify `ttsystem`
 

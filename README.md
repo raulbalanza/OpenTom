@@ -109,3 +109,8 @@ Use an ext2 partion on your SDcard to replace (and free) initramfs with busybox 
 - Clément Gerardin (opentom@free.fr): project creator and supporter
 - Raúl Balanzá (contact@raulbalanza.me): project sources update and verification
 - Michele Martinelli (https://github.com/micky-it): project update and tested
+
+## Donations
+If you want to thank me (micky-it) by donating bitcoins here is my wallet address!
+> `1FbKuHZrtvhNnZ87N79AHfX6BzuLmS9mpN`
+

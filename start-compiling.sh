@@ -12,7 +12,7 @@ then
     source get_cross_env.sh
     make
     echo -e "If you are getting an error like 'x86_64-unknown-linux-gnu',use the command 'linux32 make' to continue compiling! "
-    source get_cross_env.sh
+    source get_cross_env.sh $*
 
           
 fi

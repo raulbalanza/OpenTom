@@ -1,8 +1,10 @@
 # OpenTom
 
 **OpenTom** is a tiny, open source Linux distribution for TomTom™ devices.  
-*This repository was tested to be working on **March 2021**.*
+*This repository was tested to be working on **April 2021**.*
 Forked and fixed up by micky-it
+
+###Build status: Passed ✅
 
 ## Getting started
 

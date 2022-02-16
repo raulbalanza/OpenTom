@@ -6,8 +6,8 @@ wget https://downloads.sourceforge.net/libpng/zlib-1.2.11.tar.gz
 [ -f $1 ] || { cd ../build && wget http://downloads.sourceforge.net/libjpeg/6b/jpegsrc.v6b.tar.gz && tar -zxvf jpegsrc.v6b.tar.gz && sed -i 's/${CC-cc}/gcc/g' jpeg-6b/config.guess && mv jpeg-6b/ libjpeg-6b/ && tar czf ../Downloads/libjpeg-6b.tar.gz libjpeg-6b; }
 wget http://download.savannah.gnu.org/releases/freetype/freetype-old/freetype-2.3.12.tar.gz
 wget ftp://ftp.icm.edu.pl/pub/unix/graphics/GraphicsMagick/delegates/libpng-1.6.28.tar.gz
-wget ftp://microwindows.org/pub/microwindows/microwindows-full-snapshot.tar.gz -O microwin_9ffcd17.tgz
-wget ftp://microwindows.org/pub/microwindows/nxlib-src-snapshot.tar.gz -O nxlib_7adaf0e.tgz
+wget http://microwindows.org/pub/microwindows/microwindows-full-snapshot.tar.gz -O microwin_9ffcd17.tgz
+wget http://microwindows.org/pub/microwindows/nxlib-src-snapshot.tar.gz -O nxlib_7adaf0e.tgz
 wget http://www.libsdl.org/release/SDL-1.2.15.tar.gz
 wget http://www.libsdl.org/projects/SDL_image/release/SDL_image-1.2.12.tar.gz
 wget http://www.libsdl.org/projects/SDL_mixer/release/SDL_mixer-1.2.12.tar.gz
@@ -24,7 +24,7 @@ wget http://ftp.gnome.org/pub/gnome/sources/glib/2.14/glib-2.14.6.tar.gz
 wget https://archive.org/download/bluez-libs-2.15-tt350126.tar.gz/bluez-libs-2.15-tt350126.tar.gz
 wget https://curl.haxx.se/download/curl-7.51.0.tar.gz
 wget http://downloads.sourceforge.net/project/mad/libid3tag/0.15.1b/libid3tag-0.15.1b.tar.gz
-wget http://downloads.sourceforge.net/project/expat/expat/2.1.0/expat-2.1.0.tar.gz
+wget https://src.fedoraproject.org/repo/pkgs/expat/expat-2.1.0.tar.gz/dd7dab7a5fea97d2a6a43f511449b7cd/expat-2.1.0.tar.gz
 wget http://downloads.sourceforge.net/project/espeak/espeak/espeak-1.48/espeak-1.48.02-source.zip
 wget http://www.portaudio.com/archives/pa_stable_v19_20140130.tgz
 wget http://www.nih.at/libzip/libzip-0.11.2.tar.gz
